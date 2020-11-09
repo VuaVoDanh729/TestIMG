@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setting();
     }
-
+    // setting các thông số, gán các View với ID
+    // Lấy thông tin các Player từ PlayerInfor (Tên , ảnh ,...)
     void setting() {
         buttonHp1 = findViewById(R.id.buttonHp1);
         buttonHp2 = findViewById(R.id.buttonHp2);
@@ -51,23 +52,25 @@ public class MainActivity extends AppCompatActivity {
         Player player2 = (Player) bundle.get("player2");
         player1_avatar.setImageResource(player1.getImgId());
         player2_avatar.setImageResource(player2.getImgId());
-
         Init();
     }
 
+    // Khởi tạo bàn cờ, Set sự kiện cho button, xử lý sự kiện ăn quân .
+    // Hàm Controller.Execute sẽ trả về số quân bị ăn. -> hpLost
     void Init() {
         for (int i = 0; i < board.length; i++) {
             TableRow row = new TableRow(this);
             for (int j = 0; j < board[0].length; j++) {
                 final int x = i;
                 final int y = j;
+
+
                 final Button button = new Button(this);
                 button.setId(id);
                 button.setText("+");
                 TableRow.LayoutParams layout = new TableRow.LayoutParams(110, 110);
                 button.setLayoutParams(layout);
                 button.setBackgroundColor(yellow);
-
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -79,16 +82,17 @@ public class MainActivity extends AppCompatActivity {
                         defaultColor = defaultColor == black ? white : black;
                     }
                 });
+
+
                 Node node = new Node(id, i, j, button, false);
                 board[i][j] = node;
                 row.addView(button);
             }
-
             layout.addView(row);
         }
     }
 
-
+    // Tính ra số máu bị trừ nếu bị ăn quân
     void subHP() {
         if (defaultColor == black) {
             changeSizeHP(buttonHp1);
@@ -97,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // làm mới game
     public void onClick(View view) {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -107,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         setOriginalHp(buttonHp2);
     }
 
+    // giảm Width của thanh máu
     void changeSizeHP(Button butt) {
         ConstraintLayout.LayoutParams param = null;
         param = (ConstraintLayout.LayoutParams) butt.getLayoutParams();
@@ -114,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         butt.setLayoutParams(param);
     }
 
+    // set Thanh máu về ban đầu
     void setOriginalHp(Button butt) {
         ConstraintLayout.LayoutParams param = (ConstraintLayout.LayoutParams) butt.getLayoutParams();
         param.width = 300;

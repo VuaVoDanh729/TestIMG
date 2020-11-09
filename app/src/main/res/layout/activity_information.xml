@@ -4,60 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_2"
     tools:context=".information">
 
-    <RadioGroup
-        android:id="@+id/groupRadio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="328dp"
-        android:layout_marginBottom="104dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.49">
-
-        <RadioButton
-            android:id="@+id/radio1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Player 1" />
-
-        <RadioButton
-            android:id="@+id/radio2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Player 2" />
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/btn_pre"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="58dp"
-        android:layout_height="92dp"
-        android:background="@drawable/custom_button"
-        android:onClick="onClickPre"
+    <ImageView
+        android:id="@+id/buttonRight"
+        android:layout_width="90dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="50dp"
+        android:onClick="imgNextOnclick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.893"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.69" />
+        app:layout_constraintVertical_bias="0.925"
+        app:srcCompat="@drawable/akaly" />
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="333dp"
+        android:layout_height="273dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_save"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRight"
+        app:layout_constraintHorizontal_bias="0.825"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.425"
-        app:srcCompat="@drawable/daxua" />
+        app:srcCompat="@drawable/daxua"
+       />
 
     <TextView
         android:id="@+id/textView"
@@ -69,7 +43,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintVertical_bias="0.041" />
 
     <EditText
         android:id="@+id/name"
@@ -80,10 +54,10 @@
         android:text="LittleHomie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.289"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.231" />
+        app:layout_constraintVertical_bias="0.013" />
 
     <Button
         android:id="@+id/btn_save"
@@ -93,38 +67,25 @@
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose Avatar"
-        android:textSize="19dp"
+    <ImageView
+        android:id="@+id/buttonLeft"
+        android:layout_width="90dp"
+        android:layout_height="120dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="50dp"
+        android:onClick="imgPreOnclick"
+        android:rotationY="30"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintEnd_toStartOf="@+id/avatar"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.339" />
-
-    <Button
-        android:id="@+id/btn_next"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="55dp"
-        android:layout_height="92dp"
-        android:background="@drawable/custom_button"
-        android:onClick="onClickNext"
-        android:rotationX="360"
-        android:rotationY="180"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.702" />
+        app:layout_constraintVertical_bias="0.925"
+        app:srcCompat="@drawable/akaly" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
